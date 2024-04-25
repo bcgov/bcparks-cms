@@ -1,0 +1,19 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: node
+  annotations:
+    description: node js
+  labels:
+    release: {{ .Release.Name }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    heritage: {{ .Release.Service }}    
+spec:
+  tags:
+  - from:
+      kind: DockerImage
+      name: "{{ .Values.images.node.name }}:{{ .Values.images.node.tag }}"
+    generation: 2
+    name: {{ .Values.images.node.tag }}
+    referencePolicy:
+      type: Source

@@ -1,42 +1,42 @@
 cluster:
-  domain: apps.silver.devops.gov.bc.ca
+  domain: apps.gold.devops.gov.bc.ca
   ssoAuthUrl: https://dev.loginproxy.gov.bc.ca/auth
   ssoRealm: bcparks-service-transformation
   ssoClientId: staff-portal
 
 images:
   strapi:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/strapi-main
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/strapi-main
     tag: latest
   postgres:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/postgresql
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/postgresql
     tag: "13"
   pgbouncer:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/pgbouncer
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/pgbouncer
     tag: latest
   admin:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/admin-main
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/admin-main
     tag: latest
   public:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/public-main
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/public-main
     tag: latest
   patroni:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/patroni-postgres
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/patroni-postgres
     tag: 2.0.1-12.4
   backup:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/backup-container
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/backup-container
     tag: postgres-latest
   maintenance:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/maintenance-main
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/maintenance-main
     tag: latest
   redis:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/redis
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/redis
     tag: 6.2.6-alpine
   etl:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/etl-main
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/etl-main
     tag: latest
   scheduler:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/scheduler-main
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/scheduler-main
     tag: latest
 
 cms:
@@ -46,7 +46,7 @@ cms:
 
   resources:
     limits:
-      cpu: 750m
+      cpu: 400m
       memory: 1250Mi
     requests:
       cpu: 75m
@@ -75,7 +75,7 @@ cms:
 
   hpa:
     minReplicas: 1
-    maxReplicas: 1
+    maxReplicas: 2
     cpuUtilizationThreshold: 125
 
 patroni:
@@ -89,7 +89,7 @@ patroni:
 
   resources:
     limits:
-      cpu: 500m
+      cpu: 250m
       memory: 1250Mi
     requests:
       cpu: 100m
@@ -169,7 +169,7 @@ public:
 
   hpa:
     minReplicas: 1
-    maxReplicas: 1
+    maxReplicas: 2
     cpuUtilizationThreshold: 125
 
 backup:
@@ -200,7 +200,7 @@ backup:
 
   enironment:
     friendlyName: "bcparks.ca CMS Postgres Backup [dev]"
-    name: "61d198-dev"
+    name: "c1643c-dev"
 
   tableSchema: "public"
 

@@ -31,7 +31,7 @@ Running the following command will copy a data dump to the db-export subfolder o
 on your local system:
 
 ```shell
-pwsh export-db.ps1 -Project 61d198-test -OutputPath ./
+pwsh export-db.ps1 -Project c1643c-test -OutputPath ./
 ```
 
 This script dumps data to a temporary folder on one of the Patroni OpenShift pods and then syncs it locally.
@@ -41,7 +41,7 @@ This script dumps data to a temporary folder on one of the Patroni OpenShift pod
 Running the following command will update the dev db with a previously generated export:
 
 ```shell
-pwsh import-db.ps1 -Project 61d198-dev
+pwsh import-db.ps1 -Project c1643c-dev
 ```
 
 This script syncs a local export.sql file to a temporary directory on the leader Patroni pod, and imports

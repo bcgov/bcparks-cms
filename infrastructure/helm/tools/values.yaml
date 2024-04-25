@@ -1,0 +1,19 @@
+images:
+  caddy:
+    name: caddy
+    tag: 2.6.2-alpine
+  node:
+    name: node
+    tag: 18-slim
+  redis:
+    name: redis
+    tag: 6.2.14-alpine
+  patronipostgres:
+    name: bcgovdevopsps/patroni-postgres
+    tag: 12.4-latest
+  pgbouncer:
+    name: bitnami/pgbouncer
+    tag: 1.22.1
+  backupcontainer:
+    name: bcgovimages/backup-container
+    tag: 2.8.1

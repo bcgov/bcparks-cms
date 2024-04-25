@@ -3,17 +3,17 @@ cluster:
 
 images:
   strapi:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/strapi-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/strapi-alpha
   admin:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/admin-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/admin-alpha
   public:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/public-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/public-alpha
   maintenance:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/maintenance-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/maintenance-alpha
   etl:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/etl-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/etl-alpha
   scheduler:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/scheduler-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/scheduler-alpha
 
 cms:
   env:

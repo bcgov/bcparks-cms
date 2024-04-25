@@ -1,4 +1,4 @@
-name: Build dev on develop & main branch push (GOLD)
+name: Build dev on alpha & main branch push (GOLD)
 
 on:
   push:

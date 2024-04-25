@@ -49,9 +49,9 @@ jobs:
               echo "DEPLOYMENT_NAME=main-public" >> $GITHUB_ENV
           else
               echo "BRANCH=develop" >> $GITHUB_ENV
-              echo "BUILDER_IMAGE_NAME=public-builder-develop" >> $GITHUB_ENV
-              echo "IMAGE_NAME=public-develop" >> $GITHUB_ENV
-              echo "DEPLOYMENT_NAME=develop-public" >> $GITHUB_ENV
+              echo "BUILDER_IMAGE_NAME=public-builder-alpha" >> $GITHUB_ENV
+              echo "IMAGE_NAME=public-alpha" >> $GITHUB_ENV
+              echo "DEPLOYMENT_NAME=alpha-public" >> $GITHUB_ENV
           fi
       - name: Set vars
         id: vars

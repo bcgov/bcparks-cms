@@ -12,7 +12,7 @@ OpenSearch is Amazon's community-driven, 100% open-source version of Elastisearc
 * Connect to the BC Government AWS login application and get your credentials to paste into a terminal
 * `cd infrastructure/aws-opensearch/dev`
 * `terragrunt apply`
-* Update the main-elasticsearch-secret and develop-elasticsearch-secret on DEV and TEST OpenShift environments to ensure that the settings match AWS.
+* Update the main-elasticsearch-secret and alpha-elasticsearch-secret on DEV and TEST OpenShift environments to ensure that the settings match AWS.
 
 ## Updating TEST
 

@@ -5,8 +5,8 @@ const ImagePruner = require("./imagePruner");
 const OPENSHIFT_AUTH_TOKEN = process.env.OPENSHIFT_AUTH_TOKEN;
 const OPENSHIFT_API_URL =
   process.env.OPENSHIFT_API_URL ||
-  "https://api.silver.devops.gov.bc.ca:6443/apis/image.openshift.io/v1";
-const TOOLS_NAMESPACE = process.env.TOOLS_NAMESPACE || "61d198-tools";
+  "https://api.gold.devops.gov.bc.ca:6443/apis/image.openshift.io/v1";
+const TOOLS_NAMESPACE = process.env.TOOLS_NAMESPACE || "c1643c-tools";
 
 // Regex pattern used to match git sha hash abcd345
 const GIT_SHA_HASH_REGEX =
@@ -23,20 +23,20 @@ const IMAGETAGS_TO_KEEP = splitAndTrim(process.env.IMAGETAGS_TO_KEEP) || [
   "prod",
 ];
 const IMAGESTRAMS_TO_CLEAN = splitAndTrim(process.env.IMAGESTRAMS_TO_CLEAN) || [
-  "admin-develop",
+  "admin-alpha",
   "admin-main",
-  "etl-develop",
+  "etl-alpha",
   "etl-main",
-  "maintenance-develop",
+  "maintenance-alpha",
   "maintenance-main",
-  "public-builder-develop",
+  "public-builder-alpha",
   "public-builder-main",
-  "public-develop",
+  "public-alpha",
   "public-main",
-  "strapi-develop",
+  "strapi-alpha",
   "strapi-main",
   "scheduler-main",
-  "scheduler-develop"
+  "scheduler-alpha"
 ];
 
 // Always keep the last "NUM_RELEASES_TO_KEEP" tags

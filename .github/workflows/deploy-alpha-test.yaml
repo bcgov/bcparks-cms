@@ -20,23 +20,23 @@ jobs:
 
       - name: Tag Test images
         run: |
-          oc -n ${{ env.TOOLS_NAMESPACE }} tag admin-develop:latest admin-develop:${{ env.ENVIRONMENT }}
-          oc -n ${{ env.TOOLS_NAMESPACE }} tag public-builder-develop:latest public-builder-develop:${{ env.ENVIRONMENT }}
-          oc -n ${{ env.TOOLS_NAMESPACE }} tag strapi-develop:latest strapi-develop:${{ env.ENVIRONMENT }}
-          oc -n ${{ env.TOOLS_NAMESPACE }} tag maintenance-develop:latest maintenance-develop:${{ env.ENVIRONMENT }}
-          oc -n ${{ env.TOOLS_NAMESPACE }} tag etl-develop:latest etl-develop:${{ env.ENVIRONMENT }}
-          oc -n ${{ env.TOOLS_NAMESPACE }} tag scheduler-develop:latest scheduler-develop:${{ env.ENVIRONMENT }}
+          oc -n ${{ env.TOOLS_NAMESPACE }} tag admin-alpha:latest admin-alpha:${{ env.ENVIRONMENT }}
+          oc -n ${{ env.TOOLS_NAMESPACE }} tag public-builder-alpha:latest public-builder-alpha:${{ env.ENVIRONMENT }}
+          oc -n ${{ env.TOOLS_NAMESPACE }} tag strapi-alpha:latest strapi-alpha:${{ env.ENVIRONMENT }}
+          oc -n ${{ env.TOOLS_NAMESPACE }} tag maintenance-alpha:latest maintenance-alpha:${{ env.ENVIRONMENT }}
+          oc -n ${{ env.TOOLS_NAMESPACE }} tag etl-alpha:latest etl-alpha:${{ env.ENVIRONMENT }}
+          oc -n ${{ env.TOOLS_NAMESPACE }} tag scheduler-alpha:latest scheduler-alpha:${{ env.ENVIRONMENT }}
 
       - name: Trigger Gatsby static build workflow
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           event-type: publish-gatsby
-          client-payload: '{"env": "${{ env.ENVIRONMENT }}", "branch": "develop"}'
+          client-payload: '{"env": "${{ env.ENVIRONMENT }}", "branch": "alpha"}'
 
       - name: Trigger new rollout
         run: |
-          oc -n ${{ env.NAMESPACE }} rollout restart deployment develop-admin
-          oc -n ${{ env.NAMESPACE }} rollout restart deployment develop-cms
-          oc -n ${{ env.NAMESPACE }} rollout restart deployment develop-maintenance
-          oc -n ${{ env.NAMESPACE }} rollout restart deployment develop-scheduler
+          oc -n ${{ env.NAMESPACE }} rollout restart deployment alpha-admin
+          oc -n ${{ env.NAMESPACE }} rollout restart deployment alpha-cms
+          oc -n ${{ env.NAMESPACE }} rollout restart deployment alpha-maintenance
+          oc -n ${{ env.NAMESPACE }} rollout restart deployment alpha-scheduler

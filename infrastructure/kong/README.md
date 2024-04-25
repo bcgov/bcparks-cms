@@ -30,13 +30,13 @@ The important thing thing to note is in step #6 - once you run through the steps
 5. In the infrastructure/kong directory, run (for TEST):
 
    ```sh
-   gwa new public-documentation.json --route-host=bcparks.api.gov.bc.ca --service-url=main-cms.61d198-test.svc --plugins rate-limiting cors  --outfile=public-test.yaml
+   gwa new public-documentation.json --route-host=bcparks.api.gov.bc.ca --service-url=main-cms.c1643c-test.svc --plugins rate-limiting cors  --outfile=public-test.yaml
    ```
 
    (for PROD):
 
    ```sh
-   gwa new public-documentation.json --route-host=bcparks.api.gov.bc.ca --service-url=main-cms.61d198-prod.svc --plugins rate-limiting cors  --outfile=public-prod.yaml
+   gwa new public-documentation.json --route-host=bcparks.api.gov.bc.ca --service-url=main-cms.c1643c-prod.svc --plugins rate-limiting cors  --outfile=public-prod.yaml
    ```
 
 6. Diff the `public-test.yaml` or `public-prod.yaml` file against the committed version. Only routes

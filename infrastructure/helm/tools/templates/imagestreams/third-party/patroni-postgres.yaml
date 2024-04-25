@@ -1,0 +1,19 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: patroni-postgres
+  annotations:
+    description: clustered postgres db
+  labels:
+    release: {{ .Release.Name }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    heritage: {{ .Release.Service }}    
+spec:
+  tags:
+  - from:
+      kind: DockerImage
+      name: "{{ .Values.images.patronipostgres.name }}:{{ .Values.images.patronipostgres.tag }}"
+    generation: 2
+    name: {{ .Values.images.patronipostgres.tag }}
+    referencePolicy:
+      type: Source

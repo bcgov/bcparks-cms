@@ -1,7 +1,7 @@
 _format_version: "1.1"
 services:
   - name: BCPARKS
-    host: main-cms.61d198-prod.svc
+    host: main-cms.c1643c-prod.svc
     protocol: http
     port: 1337
     routes:
@@ -992,7 +992,7 @@ services:
           strategy: memory
 
   - name: BCPARKS-GRAPHQL
-    host: main-cms.61d198-prod.svc
+    host: main-cms.c1643c-prod.svc
     protocol: http
     port: 1337
     routes:

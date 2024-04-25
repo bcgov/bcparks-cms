@@ -1,0 +1,26 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: backup-container
+  annotations:
+    description: backup container for postgres
+  labels:
+    release: {{ .Release.Name }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    heritage: {{ .Release.Service }}    
+spec:
+  tags:
+  - from:
+      kind: DockerImage
+      name: "{{ .Values.images.backupcontainer.name }}:{{ .Values.images.backupcontainer.tag }}"
+    generation: 2
+    name: {{ .Values.images.backupcontainer.tag }}
+    referencePolicy:
+      type: Source
+  - from:
+      kind: ImageStreamTag
+      name: "backup-container:{{ .Values.images.backupcontainer.tag }}"
+    generation: 2
+    name: postgres-latest
+    referencePolicy:
+      type: Source

@@ -3,22 +3,22 @@ cluster:
 
 images:
   strapi:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/strapi-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/strapi-develop
     tag: test
   admin:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/admin-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/admin-develop
     tag: test
   public:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/public-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/public-develop
     tag: test
   maintenance:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/maintenance-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/maintenance-develop
     tag: test
   etl:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/etl-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/etl-develop
     tag: test
   scheduler:
-    name: image-registry.openshift-image-registry.svc:5000/61d198-tools/scheduler-develop
+    name: image-registry.openshift-image-registry.svc:5000/c1643c-tools/scheduler-develop
     tag: test
 
 cms:
@@ -49,7 +49,7 @@ backup:
 
   enironment:
     friendlyName: bcparks.ca CMS Postgres Backup [alpha-test]
-    name: 61d198-test
+    name: c1643c-test
 
 public:
   hpa:

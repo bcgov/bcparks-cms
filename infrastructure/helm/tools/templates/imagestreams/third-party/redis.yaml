@@ -1,0 +1,19 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: redis
+  annotations:
+    description: redis
+  labels:
+    release: {{ .Release.Name }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    heritage: {{ .Release.Service }}    
+spec:
+  tags:
+  - from:
+      kind: DockerImage
+      name: "{{ .Values.images.redis.name }}:{{ .Values.images.redis.tag }}"
+    generation: 2
+    name: {{ .Values.images.redis.tag }}
+    referencePolicy:
+      type: Source

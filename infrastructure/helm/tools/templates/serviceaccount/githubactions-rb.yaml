@@ -1,0 +1,15 @@
+apiVersion: authorization.openshift.io/v1
+kind: RoleBinding
+metadata:
+  name: githubactions-edit
+  labels:
+    app: {{ .Release.Name }}
+    release: {{ .Release.Name }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    heritage: {{ .Release.Service }}
+subjects:
+  - kind: ServiceAccount
+    name: githubactions
+roleRef:
+  kind: Role
+  name: edit

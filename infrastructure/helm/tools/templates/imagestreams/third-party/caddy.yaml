@@ -1,0 +1,26 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: caddy
+  annotations:
+    description: Caddy web server
+  labels:
+    release: {{ .Release.Name }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    heritage: {{ .Release.Service }}    
+spec:
+  tags:
+  - from:
+      kind: DockerImage
+      name: "{{ .Values.images.caddy.name }}:{{ .Values.images.caddy.tag }}"
+    generation: 2
+    name: {{ .Values.images.caddy.tag }}
+    referencePolicy:
+      type: Source
+  - from:
+      kind: ImageStreamTag
+      name: "caddy:{{ .Values.images.caddy.tag }}"
+    generation: 2
+    name: latest
+    referencePolicy:
+      type: Source

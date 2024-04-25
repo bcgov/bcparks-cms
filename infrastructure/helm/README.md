@@ -12,27 +12,27 @@ The `install` command can be used when deploying to a namespace for the very fir
 
 Run the following commands from the `infrastructure/helm/bcparks` directory.
 
-Objects prefixed with `main-` in OpenShift are from the main branch in GitHub and objects prefixed with `develop-` are from the develop branch (alpha environments). There is no `develop-` for prod because there is no alpha environment for prod.
+Objects prefixed with `main-` in OpenShift are from the main branch in GitHub and objects prefixed with `alpha-` are from the develop branch (alpha environments). There is no `alpha-` for prod because there is no alpha environment for prod.
 
 ### Dev
 
-`helm -n 61d198-dev install main . -f values-dev.yaml`
+`helm -n c1643c-dev install main . -f values-dev.yaml`
 
 ### Test
 
-`helm -n 61d198-test install main . -f values-test.yaml`
+`helm -n c1643c-test install main . -f values-test.yaml`
 
 ### Prod
 
-`helm -n 61d198-prod install main . -f values-prod.yaml`
+`helm -n c1643c-prod install main . -f values-prod.yaml`
 
 ### Alpha Dev (develop branch)
 
-`helm -n 61d198-dev install develop . -f values-alpha-dev.yaml`
+`helm -n c1643c-dev install alpha . -f values-alpha-dev.yaml`
 
 ### Alpha Test (develop branch)
 
-`helm -n 61d198-test install develop . -f values-alpha-test.yaml`
+`helm -n c1643c-test install alpha . -f values-alpha-test.yaml`
 
 ## Upgrading
 
@@ -42,23 +42,23 @@ Run the following commands from the `infrastructure/helm/bcparks` directory.
 
 ### Dev
 
-`helm -n 61d198-dev upgrade main . -f values-dev.yaml`
+`helm -n c1643c-dev upgrade main . -f values-dev.yaml`
 
 ### Test
 
-`helm -n 61d198-test upgrade main . -f values-test.yaml`
+`helm -n c1643c-test upgrade main . -f values-test.yaml`
 
 ### Prod
 
-`helm -n 61d198-prod upgrade main . -f values-prod.yaml`
+`helm -n c1643c-prod upgrade main . -f values-prod.yaml`
 
 ### Alpha Dev (develop branch)
 
-`helm -n 61d198-dev upgrade develop . -f values-alpha-dev.yaml`
+`helm -n c1643c-dev upgrade alpha . -f values-alpha-dev.yaml`
 
 ### Alpha Test (develop branch)
 
-`helm -n 61d198-test upgrade develop . -f values-alpha-test.yaml`
+`helm -n c1643c-test upgrade alpha . -f values-alpha-test.yaml`
 
 ## Teardown
 
@@ -68,20 +68,20 @@ Run the following commands from the `infrastructure/helm/bcparks` directory.
 
 ### Dev
 
-`helm -n 61d198-dev uninstall main`
+`helm -n c1643c-dev uninstall main`
 
 ### Test
 
-`helm -n 61d198-test uninstall main`
+`helm -n c1643c-test uninstall main`
 
 ### Prod
 
-`helm -n 61d198-prod uninstall main`
+`helm -n c1643c-prod uninstall main`
 
 ### Alpha Dev (develop branch)
 
-`helm -n 61d198-dev uninstall develop`
+`helm -n c1643c-dev uninstall develop`
 
 ### Alpha Test (develop branch)
 
-`helm -n 61d198-test uninstall develop`
+`helm -n c1643c-test uninstall develop`

@@ -1,0 +1,62 @@
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: imagetag-pruner
+  labels:
+    cronjob: imagetag-pruner  
+    release: {{ .Release.Name }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    heritage: {{ .Release.Service }}    
+spec:
+  schedule: 0 10 * * *
+  concurrencyPolicy: Forbid
+  suspend: false
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      labels:
+        cronjob: imagetag-pruner
+        template: imagetag-pruner-job
+    spec:
+      backoffLimit: 0
+      template:
+        metadata:
+          creationTimestamp: null
+          labels:
+            cronjob: imagetag-pruner
+            template: imagetag-pruner-job
+        spec:
+          containers:
+            - name: imagetag-pruner-cronjob
+              image: >-
+                image-registry.openshift-image-registry.svc:5000/c1643c-tools/imagetag-pruner:latest
+              command:
+                - /bin/bash
+                - '-c'
+                - npm start
+              env:
+                - name: OPENSHIFT_AUTH_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: pipeline-token-ngfsp
+                      key: token
+                - name: DRY_RUN
+                  value: 'false'
+                - name: NUM_RELEASES_TO_KEEP
+                  value: '10'
+                - name: IMAGESTRAMS_TO_CLEAN
+                  value: >-
+                    admin-alpha,admin-main,etl-alpha,etl-main,maintenance-alpha,maintenance-main,public-builder-alpha,public-builder-main,public-alpha,public-main,strapi-alpha,strapi-main,scheduler-main,scheduler-alpha
+              resources: {}
+              terminationMessagePath: /dev/termination-log
+              terminationMessagePolicy: File
+              imagePullPolicy: Always
+          restartPolicy: Never
+          terminationGracePeriodSeconds: 30
+          activeDeadlineSeconds: 1600
+          dnsPolicy: ClusterFirst
+          securityContext: {}
+          schedulerName: default-scheduler
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 2
+

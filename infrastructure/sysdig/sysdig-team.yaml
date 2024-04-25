@@ -1,25 +1,25 @@
 apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
-  name: 61d198-sysdigteam
+  name: c1643c-sysdigteam
 objects:
   - apiVersion: ops.gov.bc.ca/v1alpha1
     kind: SysdigTeam
     metadata:
-      name: 61d198-sysdigteam
+      name: c1643c-sysdigteam
     spec:
       team:
         description: bcparks.ca sysdig team
         users:
-          - name: hi@cole.io
+          - name: mike@oxd.com
             role: ROLE_TEAM_MANAGER
-          - name: neal.li@gov.bc.ca
-            role: ROLE_TEAM_MANAGER
-          - name: day@oxd.com
-            role: ROLE_TEAM_EDIT
           - name: mark@digitalspace.ca
+            role: ROLE_TEAM_MANAGER
+          - name: robert.fiddler@gov.bc.ca
+            role: ROLE_TEAM_MANAGER
+          - name: ayumi.tanaka@gov.bc.ca
+            role: ROLE_TEAM_EDIT
+          - name: sqa.manuji@gmail.com
             role: ROLE_TEAM_EDIT
           - name: cameron@digitalspace.ca
-            role: ROLE_TEAM_EDIT
-          - name: goldie.zohar@gmail.com
             role: ROLE_TEAM_EDIT
