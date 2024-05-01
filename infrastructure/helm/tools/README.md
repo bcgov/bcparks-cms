@@ -1,4 +1,4 @@
-# Deploying and Upgrading ther Tools Project
+# Deploying and Upgrading the Tools Project
 
 ## Prerequisite
 
@@ -19,3 +19,21 @@ Run the following commands from the `infrastructure/helm/tools` directory.
 ### Teardown
 
 `helm -n c1643c-tools uninstall bcparks-tools`
+
+
+## Allow service accounts to pull images from tools.
+
+`oc policy add-role-to-group system:image-puller system:serviceaccounts:c1643c-dev --namespace=c1643c-tools`
+
+`oc policy add-role-to-group system:image-puller system:serviceaccounts:c1643c-prod --namespace=c1643c-tools`
+
+`oc policy add-role-to-group system:image-puller system:serviceaccounts:c1643c-test --namespace=c1643c-tools`
+
+
+## Allow service account in tools to trigger deployments
+
+`oc policy add-role-to-user edit system:serviceaccount:c1643c-tools:builder -n c1643c-dev`
+
+`oc policy add-role-to-user edit system:serviceaccount:c1643c-tools:builder -n c1643c-test`
+
+`oc policy add-role-to-user edit system:serviceaccount:c1643c-tools:builder -n c1643c-prod`

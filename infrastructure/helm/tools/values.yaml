@@ -9,8 +9,8 @@ images:
     name: redis
     tag: 6.2.14-alpine
   patronipostgres:
-    name: bcgovdevopsps/patroni-postgres
-    tag: 12.4-latest
+    name: artifacts.developer.gov.bc.ca/bcgov-docker-local/patroni-postgres
+    tag: 2.0.1-12.4-latest
   pgbouncer:
     name: bitnami/pgbouncer
     tag: 1.22.1

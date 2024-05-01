@@ -12,7 +12,7 @@ The `install` command can be used when deploying to a namespace for the very fir
 
 Run the following commands from the `infrastructure/helm/bcparks` directory.
 
-Objects prefixed with `main-` in OpenShift are from the main branch in GitHub and objects prefixed with `alpha-` are from the develop branch (alpha environments). There is no `alpha-` for prod because there is no alpha environment for prod.
+Objects prefixed with `main-` in OpenShift are from the main branch in GitHub and objects prefixed with `alpha-` are from the alpha branch (alpha environments). There is no `alpha-` for prod because there is no alpha environment for prod.
 
 ### Dev
 
@@ -26,11 +26,11 @@ Objects prefixed with `main-` in OpenShift are from the main branch in GitHub an
 
 `helm -n c1643c-prod install main . -f values-prod.yaml`
 
-### Alpha Dev (develop branch)
+### Alpha Dev (alpha branch)
 
 `helm -n c1643c-dev install alpha . -f values-alpha-dev.yaml`
 
-### Alpha Test (develop branch)
+### Alpha Test (alpha branch)
 
 `helm -n c1643c-test install alpha . -f values-alpha-test.yaml`
 
@@ -52,11 +52,11 @@ Run the following commands from the `infrastructure/helm/bcparks` directory.
 
 `helm -n c1643c-prod upgrade main . -f values-prod.yaml`
 
-### Alpha Dev (develop branch)
+### Alpha Dev (alpha branch)
 
 `helm -n c1643c-dev upgrade alpha . -f values-alpha-dev.yaml`
 
-### Alpha Test (develop branch)
+### Alpha Test (alpha branch)
 
 `helm -n c1643c-test upgrade alpha . -f values-alpha-test.yaml`
 
@@ -78,10 +78,10 @@ Run the following commands from the `infrastructure/helm/bcparks` directory.
 
 `helm -n c1643c-prod uninstall main`
 
-### Alpha Dev (develop branch)
+### Alpha Dev (alpha branch)
 
-`helm -n c1643c-dev uninstall develop`
+`helm -n c1643c-dev uninstall   alpha`
 
-### Alpha Test (develop branch)
+### Alpha Test (alpha branch)
 
-`helm -n c1643c-test uninstall develop`
+`helm -n c1643c-test uninstall   alpha`
