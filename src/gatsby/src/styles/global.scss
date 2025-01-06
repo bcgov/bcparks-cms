@@ -520,6 +520,37 @@ button.btn:not(.btn-link) {
   }
 }
 
+.btn-audio {
+  height: 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 50%;
+  border: $colorGreyLight solid 1px;
+  padding: 0;
+  svg {
+    height: 28px;
+    width: 28px;
+    color: $colorBlue;
+  }
+  &:hover, &:focus {
+    background-color: $colorBlue;
+    border: $colorBlue solid 1px;
+    svg {
+      color: $colorWhite;
+    }
+  }
+  &:focus {
+    box-shadow: 0px 0px 4px 0px $colorBlack;
+  }
+  &:focus-visible {
+    border: $colorWhite solid 2px;
+    outline: $colorBlueMed solid 2px;
+  }
+}
+
 // breadcurmbs
 nav.breadcrumbs {
   ol {

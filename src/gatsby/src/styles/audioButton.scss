@@ -1,0 +1,9 @@
+@import "variables.scss";
+
+.audio-container {
+  max-width: 600px;
+  display: flex;
+  &--left {
+    margin-right: 16px;
+  }
+}

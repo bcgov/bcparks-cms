@@ -27,7 +27,7 @@ export default function ScrollToTop() {
   return (
     isVisible && (
       <button
-        aria-label="scroll to top"
+        aria-label="Scroll to top"
         onClick={handleClick}
         className="btn-scroll"
       >

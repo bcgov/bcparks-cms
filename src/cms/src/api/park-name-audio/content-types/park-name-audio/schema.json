@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "park_name_audios",
+  "info": {
+    "singularName": "park-name-audio",
+    "pluralName": "park-name-audios",
+    "displayName": "Park-name-audio",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "credit": {
+      "type": "string"
+    },
+    "transcript": {
+      "type": "text"
+    },
+    "protectedArea": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::protected-area.protected-area",
+      "inversedBy": "parkNameAudio"
+    }
+  }
+}
