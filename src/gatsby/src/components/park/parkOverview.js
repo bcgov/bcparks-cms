@@ -19,6 +19,7 @@ export default function ParkOverview({ description, type, audio }) {
   const hasHr = $('hr').length > 0
   const hrAtEnd = description.trim().endsWith('<hr>')
   const hasExpandCondition = (hasHr || isLong) && !isMedium && !hrAtEnd
+  const hasAudio = audio?.title && audio?.url && audio?.credit
 
   useEffect(() => {
     if (!hasHr && ref.current.clientHeight > 260) {
@@ -48,7 +49,7 @@ export default function ParkOverview({ description, type, audio }) {
         <HtmlContent className="park-overview-html">
           {expanded ? description : collapsedDescription}
         </HtmlContent>
-        <AudioButton audio={audio} />
+        {hasAudio && <AudioButton audio={audio} />}
       </div>
       {hasExpandCondition &&
         <button

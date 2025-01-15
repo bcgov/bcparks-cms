@@ -259,7 +259,7 @@ export default function SiteTemplate({ data }) {
           <div className="page-content col-12 col-md-8">
             {menuItems[0].visible && (
               <div ref={parkOverviewRef} className="w-100">
-                <ParkOverview data={description} type="site" />
+                <ParkOverview description={description} type="site" />
               </div>
             )}
             {menuItems[1].visible && (

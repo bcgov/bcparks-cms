@@ -23,6 +23,13 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
   const typeDefs = `
+  type STRAPI_PARK_NAME_AUDIO implements Node @dontInfer {
+    title: String
+    url: String
+    credit: String
+    transcript: String
+  }
+
   type STRAPI_PARK_PHOTO_CAPTION_TEXTNODE implements Node @dontInfer {
     caption: String
   }
@@ -180,6 +187,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     nearbyParks: [STRAPI_PROTECTED_AREA] @link(by: "id", from: "nearbyParks___NODE")
     trailReports: [STRAPI_TRAIL_REPORT] @link(by: "id", from: "trailReports___NODE")
     parkContacts: [STRAPI_PARK_CONTACT] @link(by: "id", from: "parkContacts___NODE")
+    parkNameAudio: STRAPI_PARK_NAME_AUDIO @link(by: "id", from: "parkNameAudio___NODE")
   }
   
   type STRAPI__COMPONENT_PARKS_RTE_LIST_CONTENT_TEXTNODE implements Node @dontInfer {

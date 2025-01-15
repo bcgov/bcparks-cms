@@ -8,27 +8,36 @@ import {
 import "../styles/audioButton.scss"
 
 export default function AudioButton({ audio }) {
+  // refs and states
   const audioRef = useRef(null)
   const [trackSrc, setTrackSrc] = useState("")
   const [expanded, setExpanded] = useState(false)
 
+  // functions
+  const createVttContent = transcript => {
+    return `WEBVTT\n\n1\n00:00:00.000 --> 00:00:10.000\n${transcript}`
+  }
+  const createBlobUrl = content => {
+    const blob = new Blob([content], { type: "text/vtt" })
+    return URL.createObjectURL(blob)
+  }
   const handlePlay = () => {
     if (audioRef.current) {
       audioRef.current.play()
     }
   }
 
+  // effects
   useEffect(() => {
-    // convert transcript to vtt format
-    const vttContent = `WEBVTT\n\n1\n00:00:00.000 --> 00:00:10.000\n${audio.transcript}`
-    // create a blob from the vtt content
-    const blob = new Blob([vttContent], { type: "text/vtt" })
-    const url = URL.createObjectURL(blob)
-    setTrackSrc(url)
-    return () => {
-      URL.revokeObjectURL(url)
+    if (audio?.transcript.length) {
+      const vttContent = createVttContent(audio.transcript)
+      const url = createBlobUrl(vttContent)
+      setTrackSrc(url)
+      return () => {
+        URL.revokeObjectURL(url)
+      }
     }
-  }, [audio.transcript])
+  }, [audio?.transcript])
 
   return (
     <div className="audio-container">
