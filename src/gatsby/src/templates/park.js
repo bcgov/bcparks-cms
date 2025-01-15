@@ -327,7 +327,7 @@ export default function ParkTemplate({ data }) {
           <div className={`page-content has-nearby-parks--${hasNearbyParks} col-12 col-md-8`}>
             {menuItems[0].visible && (
               <div ref={parkOverviewRef} className="w-100">
-                <ParkOverview data={description} type={parkType} />
+                <ParkOverview description={description} type={parkType} audio={park.parkNameAudio} />
               </div>
             )}
             {menuItems[1].visible && (
@@ -845,6 +845,12 @@ export const query = graphql`
             contactUrl
           }
         }
+      }
+      parkNameAudio {
+        title
+        url
+        credit
+        transcript
       }
     }
     featuredPhotos: allStrapiParkPhoto(

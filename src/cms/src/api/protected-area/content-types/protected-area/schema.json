@@ -355,6 +355,12 @@
       "relation": "manyToMany",
       "target": "api::trail-report.trail-report",
       "mappedBy": "protectedAreas"
+    },
+    "parkNameAudio": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::park-name-audio.park-name-audio",
+      "mappedBy": "protectedArea"
     }
   }
 }

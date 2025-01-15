@@ -130,6 +130,9 @@ module.exports = {
                 parkPhotos: {
                   fields: "*"
                 },
+                parkNameAudio: {
+                  fields: "*"
+                },
                 trailReports: {
                   fields: "*"
                 },
