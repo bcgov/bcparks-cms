@@ -250,10 +250,23 @@ const CityNameSearch = ({
                 }}
                 onKeyDown={handleKeyDownInput}
                 enterKeyHint="search"
+                aria-describedby="city-search-error-message"
               />
               <label htmlFor="city-search-typeahead">
                 Near a city
               </label>
+              {(cityOptions(optionLimit).length === 1 && cityText) && 
+                <span
+                  key={cityText}
+                  id="city-search-error-message"
+                  role="alert"
+                  aria-live="assertive"
+                  aria-atomic="true"
+                  className="visually-hidden"
+                >
+                  No match. Please check your spelling or try a larger city in B.C.
+                </span>
+              }
             </Form.Group>
           )
         }}
@@ -265,9 +278,7 @@ const CityNameSearch = ({
                 key={results.length}
                 className="no-suggestion-text"
               >
-                <span role="alert" aria-live="assertive">
-                  No match. Please check your spelling or try a larger city in B.C.
-                </span>
+                No match. Please check your spelling or try a larger city in B.C.
               </MenuItem>
             }
             {results.map((city, index) => {

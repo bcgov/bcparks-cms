@@ -120,7 +120,7 @@ const AdvisoryCard = ({ advisory, parkInfoHash }) => {
   return (
     <Row
       key={advisory.id}
-      tabindex="-1"
+      tabIndex="-1"
       className="advisory-card g-0"
     >
       <Col xs="auto" className="advisory-card--left">

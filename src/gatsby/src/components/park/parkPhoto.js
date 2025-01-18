@@ -6,6 +6,7 @@ import "react-lazy-load-image-component/src/effects/blur.css"
 export default function ParkPhoto({ type, photoIndex, setPhotoIndex, src, alt }) {
   return (
     <button
+      aria-label=""
       className={`park-photo park-photo--${type}`}
       onClick={() => setPhotoIndex(photoIndex)}
     >

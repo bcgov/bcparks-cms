@@ -128,6 +128,7 @@ export default function AdvisoryDetails({ advisories, parkType, parkAccessStatus
               >
                 <CustomToggle
                   eventKey={index.toString()}
+                  ariaLabel={`${advisory.urgency.urgency} urgency, ${advisory.title}`}
                   ariaControls={advisory.title}
                   handleClick={() => toggleAccordion(index.toString(), advisory.title)}
                 >

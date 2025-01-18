@@ -18,6 +18,11 @@
         margin: 0 0 2px 8px;
       }
     }
+    // use h2.sub-heading instead of h3 if there is an accessibility warning - skipped heading level
+    &.sub-heading {
+      color: $colorGrey;
+      font-size: 1.25rem;
+    }
   }
   h3 {
     color: $colorGrey;

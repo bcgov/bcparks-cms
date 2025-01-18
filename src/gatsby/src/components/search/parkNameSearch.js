@@ -150,10 +150,23 @@ const ParkNameSearch = ({
               }}
               onKeyDown={handleKeyDownInput}
               enterKeyHint="search"
+              aria-describedby="park-search-error-message"
             />
             <label htmlFor="park-search-typeahead">
               By park name
             </label>
+            {(options.length === 0 && searchText) && 
+              <span
+                key={searchText}
+                id="park-search-error-message"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+                className="visually-hidden"
+              >
+                No match. Please check your spelling.
+              </span>
+            }
           </Form.Group>
         )
       }}
@@ -165,9 +178,7 @@ const ParkNameSearch = ({
               key={0}
               className="no-suggestion-text"
             >
-              <span role="alert" aria-live="assertive">
-                No match. Please check your spelling.
-              </span>
+              No match. Please check your spelling.
             </MenuItem>
           }
           {results.map((result, index) => (

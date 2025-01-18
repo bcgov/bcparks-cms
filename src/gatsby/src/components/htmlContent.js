@@ -7,6 +7,7 @@ export default function HtmlContent(props) {
   return (
     <div
       lang="en"
+      aria-hidden={props.ariaHidden}
       className={`raw-html-content ${props.className ? props.className : ""}`}
       dangerouslySetInnerHTML={{ __html: htmlContent || props.children }}
     />

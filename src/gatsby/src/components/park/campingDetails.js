@@ -73,7 +73,7 @@ export const CampingType = ({ camping, parkOperation }) => {
             {camping?.campingType?.campingTypeName}
           </h3>
         </div>
-        <HtmlContent className="park-camping-description">
+        <HtmlContent ariaHidden={!expanded} className="park-camping-description">
           {expanded ? campingDescription : collapsedDescription}
         </HtmlContent>
         {!camping.hideStandardCallout &&
@@ -88,6 +88,7 @@ export const CampingType = ({ camping, parkOperation }) => {
       {hasExpandCondition &&
         <button
           className="btn btn-link expand-icon park-camping-link"
+          aria-expanded={expanded} 
           aria-label={expandLabel(camping?.campingType?.campingTypeName)}
           onClick={handleExpandClick}
         >

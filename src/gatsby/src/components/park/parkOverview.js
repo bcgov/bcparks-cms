@@ -44,13 +44,14 @@ export default function ParkOverview({ data: parkOverview, type }) {
         <h2 id="park-overview-container" className="section-heading">
           Highlights in this {type}
         </h2>
-        <HtmlContent className="park-overview-html">
+        <HtmlContent ariaHidden={!expanded} className="park-overview-html">
           {expanded ? parkOverview : collapsedParkOverview}
         </HtmlContent>
       </div>
       {hasExpandCondition &&
         <button
           className="btn btn-link park-overview-link expand-icon"
+          aria-expanded={expanded} 
           aria-label={expanded ? "Show fewer highlights" : "Show more highlights"}
           onClick={() => {
             setExpanded(!expanded)

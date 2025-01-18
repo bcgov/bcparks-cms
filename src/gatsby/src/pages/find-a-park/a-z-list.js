@@ -103,7 +103,7 @@ const ParksPage = () => {
       <div className="static-content-container">
         <div className="page-content-wrapper">
           <div>
-            <h3>Filter</h3>
+            <h2 className="sub-heading">Filter</h2>
             <div className="filters">
               {filters.map((filter, index) => (
                 <button

@@ -61,7 +61,7 @@ export const ParkContact = ({ contact }) => {
                 href={`${getPrefix(link.contactType)}${link.contactUrl}`}
                 aria-label={`${link.contactType}: ${link.contactText}`}
               >
-                {link.contactText}
+                <span className="visually-hidden">{link.contactType}: </span>{link.contactText}
               </a>
               :
               link.contactText
@@ -108,11 +108,15 @@ export default function Contact({ contact, parkContacts, operations }) {
                     </p>
                     <p>
                       <FontAwesome icon="phone" />
-                      <a href="tel:+18006899025" aria-label="Phone number: 1-800-689-9025">1-800-689-9025</a> (toll-free from Canada or the US)
+                      <a href="tel:+18006899025" aria-label="Phone number: 1-800-689-9025">
+                        <span className="visually-hidden">Phone number: </span>1-800-689-9025
+                      </a> (toll-free from Canada or the US)
                     </p>
                     <p>
                       <FontAwesome icon="phone" />
-                      <a href="tel:+15198586161" aria-label="Phone number: 1-519-858-6161">1-519-858-6161</a> (international)
+                      <a href="tel:+15198586161" aria-label="Phone number: 1-519-858-6161">
+                        <span className="visually-hidden">Phone number: </span>1-519-858-6161
+                      </a> (international)
                     </p>
                     <p>
                       <FontAwesome icon="laptop" />
@@ -142,7 +146,9 @@ export default function Contact({ contact, parkContacts, operations }) {
                   </p>
                   <p>
                     <FontAwesome icon="envelope" />
-                    <a href="mailto:parkinfo@gov.bc.ca" aria-label="Email: parkinfo@gov.bc.ca">parkinfo@gov.bc.ca</a>
+                    <a href="mailto:parkinfo@gov.bc.ca" aria-label="Email: parkinfo@gov.bc.ca">
+                      <span className="visually-hidden">Email: </span>parkinfo@gov.bc.ca
+                    </a>
                   </p>
                 </td>
               </tr>

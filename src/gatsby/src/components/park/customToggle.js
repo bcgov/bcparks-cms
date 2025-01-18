@@ -3,6 +3,7 @@ import React from "react"
 export default function CustomToggle({
   eventKey,
   toggleId,
+  ariaLabel,
   ariaControls,
   handleClick,
   children,
@@ -19,6 +20,7 @@ export default function CustomToggle({
       id={toggleId}
       tabIndex={0}
       role="button"
+      aria-label={ariaLabel}
       aria-controls={ariaControls}
       onClick={() => handleClick(eventKey)}
       onKeyDown={handleKeyDown}
